@@ -20,7 +20,7 @@ databaseFloat.on('value', (snapshot) => {
   console.log(floatReading);
   document.getElementById("reading-float").innerHTML = floatReading;
 }, (errorObject) => {
-  console.log('The read failed: ' + errorObject.name);
+  console.log('The read failed: ' + errorObject.name + errorObject);
 });
 
 // databaseInt.on('value', (snapshot) => {

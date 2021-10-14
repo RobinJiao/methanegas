@@ -9,8 +9,6 @@ const databaseFloat = database.ref(dataFloatPath);
 const databaseInt = database.ref(dataIntPath);
 
 console.log('databaseInt: ', databaseInt);
-if (jQuery) {console.log('jQuery is loaded!')}
-  else {console.log('no jQuery !')}
 
 // Variables to save database current values
 var floatReading;
@@ -25,10 +23,25 @@ databaseFloat.on('value', (snapshot) => {
   console.log('The read failed: ' + errorObject.name);
 });
 
-databaseInt.on('value', (snapshot) => {
-  intReading = snapshot.val();
-  console.log(intReading);
-  document.getElementById("reading-int").innerHTML = intReading;
-}, (errorObject) => {
-  console.log('The read failed: ' + errorObject.name);
+// databaseInt.on('value', (snapshot) => {
+//   intReading = snapshot.val();
+//   console.log(intReading);
+//   document.getElementById("reading-int").innerHTML = intReading;
+// }, (errorObject) => {
+//   console.log('The read failed: ' + errorObject.name);
+// });
+
+const dbRef = database.ref();
+console.log('database root ref: ', dbRef)
+dbRef.child("test").child("int").get().then((snapshot) => {
+  if (snapshot.exists()) {
+    intReading = snapshot.val();
+    console.log(intReading);
+    document.getElementById("reading-int").innerHTML = intReading;
+  } else {
+    console.log("No data available");
+  }
+}).catch((error) => {
+  console.error(error);
+  console.log('in catch!')
 });

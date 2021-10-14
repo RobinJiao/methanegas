@@ -20,28 +20,14 @@ databaseFloat.on('value', (snapshot) => {
   console.log(floatReading);
   document.getElementById("reading-float").innerHTML = floatReading;
 }, (errorObject) => {
-  console.log('The read failed: ' + errorObject.name + errorObject);
+  console.log('The read failed: ' + errorObject);
 });
 
-// databaseInt.on('value', (snapshot) => {
-//   intReading = snapshot.val();
-//   console.log(intReading);
-//   document.getElementById("reading-int").innerHTML = intReading;
-// }, (errorObject) => {
-//   console.log('The read failed: ' + errorObject.name);
-// });
-
-const dbRef = database.ref();
-console.log('database root ref: ', dbRef)
-dbRef.child("test").child("int").get().then((snapshot) => {
-  if (snapshot.exists()) {
-    intReading = snapshot.val();
-    console.log(intReading);
-    document.getElementById("reading-int").innerHTML = intReading;
-  } else {
-    console.log("No data available");
-  }
-}).catch((error) => {
-  console.error(error);
-  console.log('in catch!')
+databaseInt.on('value', (snapshot) => {
+  intReading = snapshot.val();
+  console.log(intReading);
+  document.getElementById("reading-int").innerHTML = intReading;
+}, (errorObject) => {
+  console.log('The read failed: ' + errorObject);
 });
+

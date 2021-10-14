@@ -9,6 +9,9 @@ const databaseFloat = database.ref(dataFloatPath);
 const databaseInt = database.ref(dataIntPath);
 
 console.log('databaseInt: ', databaseInt);
+if (jQuery) {console.log('jQuery is loaded!')}
+  else {console.log('no jQuery !')}
+
 // Variables to save database current values
 var floatReading;
 var intReading;

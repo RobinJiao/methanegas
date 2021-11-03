@@ -40,21 +40,21 @@ databaseInt.on('value', (snapshot) => {
 
 databaseBtnA.on('value', (snapshot) => {
   btnAReading = snapshot.val();
-  console.log(btnAReading);
+  console.log('btn A reading: ',btnAReading);
   document.getElementById("reading-btnA").innerHTML = btnAReading;
 }, (errorObject) => {
   console.log('The read failed: ' + errorObject);
 });
 databaseBtnB.on('value', (snapshot) => {
   btnBReading = snapshot.val();
-  console.log(btnBReading);
+  console.log('btn B reading: ',btnBReading);
   document.getElementById("reading-btnB").innerHTML = btnBReading;
 }, (errorObject) => {
   console.log('The read failed: ' + errorObject);
 });
 databaseBtnC.on('value', (snapshot) => {
   btnCReading = snapshot.val();
-  console.log(btnCReading);
+  console.log('btn C reading: ',btnCReading);
   document.getElementById("reading-btnC").innerHTML = btnCReading;
 }, (errorObject) => {
   console.log('The read failed: ' + errorObject);
